@@ -1,6 +1,10 @@
 <?php
 include_once(__DIR__.'/../Report/ReportRow.php');
 
+/**
+ * Parse table and buffer result in Report object
+ * Class BufferedTableParser
+ */
 abstract class BufferedTableParser
 {
     protected $rows;
@@ -12,6 +16,11 @@ abstract class BufferedTableParser
         $this->reportBuffer = $buffer;
     }
 
+    /**
+     * Parse single table row
+     * @param $row
+     * @return mixed
+     */
      abstract function parseRow($row);
 
 

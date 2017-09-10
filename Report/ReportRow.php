@@ -77,7 +77,7 @@ class ReportRow
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getPercentageCountryIU()
     {
@@ -97,7 +97,7 @@ class ReportRow
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getPercentageWorldIU($totalWorldInternetUsers)
     {

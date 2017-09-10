@@ -1,6 +1,10 @@
 <?php
 include_once(__DIR__.'/../Renderer.php');
 
+/**
+ * Class BrowserRenderer
+ * Renderer for browser
+ */
 class BrowserRenderer implements Renderer
 {
     public function render(Report $report)

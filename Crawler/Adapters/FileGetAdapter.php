@@ -1,6 +1,9 @@
 <?php
 include_once(__DIR__.'/../Adapter.php');
 
+/**
+ * Class FileGetAdapter
+ */
 class FileGetAdapter implements Adapter
 {
 

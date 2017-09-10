@@ -2,10 +2,23 @@
 include_once('ReportRow.php');
 include_once('Renderers/BrowserRenderer.php');
 
+/**
+ * Class Report
+ */
 class Report
 {
+    /**
+     * total internet users worldwide
+     * @var int
+     */
     protected $totalIU = 0;
+
     protected $rows = array();
+
+    /**
+     * Report renderer
+     * @var Renderer
+     */
     protected $renderer;
 
     public function __construct()
@@ -14,7 +27,7 @@ class Report
     }
 
     /**
-     * @return mixed
+     * @return Renderer
      */
     public function getRenderer()
     {

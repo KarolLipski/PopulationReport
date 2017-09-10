@@ -19,8 +19,8 @@ echo $report->renderReport();
 exit();
 
 /**
- * Pobiera dane z Linku , parsuje je.
- * Raport tworzony jest bezposrodnie podczas pobierania danych z wiki.
+ * Downloads data from link and parse it.
+ * Raport is dynamically creating during parsing data.
  * @param $crawler Crawler
  * @param $tableParser BufferedTableParser
  * @param $url string

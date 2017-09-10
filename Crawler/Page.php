@@ -1,11 +1,19 @@
 <?php
 
+/**
+ * Page object
+ * Class Page
+ */
 class Page
 {
+    /**
+     * Html content
+     * @var string
+     */
     protected $content;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getContent()
     {
