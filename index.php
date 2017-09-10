@@ -10,11 +10,9 @@ $internetUsersUrl = 'https://en.wikipedia.org/wiki/List_of_countries_by_number_o
 
 $crawler = new Crawler();
 
-$internetUsersTableParser = new InternetUsersTableParser();
-$report = prepareReportFromLink($crawler, $internetUsersTableParser, $internetUsersUrl);
+$report = prepareReportFromLink($crawler, new InternetUsersTableParser(), $internetUsersUrl);
 
-$populationUsersTableParser = new PopulationUsersTableParser();
-$report = prepareReportFromLink($crawler, $populationUsersTableParser, $populationUrl, $report);
+$report = prepareReportFromLink($crawler, new PopulationUsersTableParser(), $populationUrl, $report);
 
 echo $report->renderReport();
 
