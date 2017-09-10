@@ -110,15 +110,6 @@ class ReportRow
 
     }
 
-    /**
-     * @param $totalWorldInternetUsers
-     */
-    public function setPercentageWorldIU($totalWorldInternetUsers)
-    {
-        $div = bcdiv($this->getInternetUsers(), $totalWorldInternetUsers, 8);
-
-        $this->percentageWorldIU = bcmul($div, 100, 5);
-    }
 
     public static function trimCountryName($country)
     {

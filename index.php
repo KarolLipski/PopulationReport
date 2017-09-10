@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors',1);
 include_once('Crawler/Crawler.php');
 include_once('Report/Report.php');
 include_once('Crawler/Extractors/WikiTableExtractor.php');
@@ -10,18 +9,32 @@ $populationUrl = 'https://en.wikipedia.org/wiki/List_of_countries_and_dependenci
 $internetUsersUrl = 'https://en.wikipedia.org/wiki/List_of_countries_by_number_of_Internet_users';
 
 $crawler = new Crawler();
-$report = new Report();
 
 $internetUsersTableParser = new InternetUsersTableParser();
-$internetUsersTableParser->setReportBuffer($report);
-$report = $crawler->getData($internetUsersUrl, new WikiTableExtractor($internetUsersTableParser));
+$report = prepareReportFromLink($crawler, $internetUsersTableParser, $internetUsersUrl);
 
 $populationUsersTableParser = new PopulationUsersTableParser();
-$populationUsersTableParser->setReportBuffer($report);
-$report = $crawler->getData($populationUrl, new WikiTableExtractor($populationUsersTableParser));
-
+$report = prepareReportFromLink($crawler, $populationUsersTableParser, $populationUrl, $report);
 
 echo $report->renderReport();
 
 exit();
 
+/**
+ * Pobiera dane z Linku , parsuje je.
+ * Raport tworzony jest bezposrodnie podczas pobierania danych z wiki.
+ * @param $crawler Crawler
+ * @param $tableParser BufferedTableParser
+ * @param $url string
+ * @param $report Report
+ * @return Report
+ */
+function prepareReportFromLink($crawler, $tableParser, $url, $report = null)
+{
+    if($report === null ) {
+        $report = new Report();
+    }
+    $tableParser->setReportBuffer($report);
+    $report = $crawler->getData($url, new WikiTableExtractor($tableParser));
+    return $report;
+}
